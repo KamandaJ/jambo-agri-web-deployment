@@ -11,8 +11,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Our Crops", href: "#" }, // Placeholder for now
-    { name: "Contact", href: "#" },   // Placeholder for now
+    { name: "Our Crops", href: "/crops" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -46,9 +46,11 @@ export default function Navbar() {
                 </a>
               </Link>
             ))}
-            <Button className="bg-secondary hover:bg-secondary/90 text-white font-medium">
-              Get a Quote
-            </Button>
+            <Link href="/contact">
+              <Button className="bg-secondary hover:bg-secondary/90 text-white font-medium">
+                Get a Quote
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,9 +77,11 @@ export default function Navbar() {
                 </a>
               </Link>
             ))}
-            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white">
-              Get a Quote
-            </Button>
+            <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <Button className="w-full bg-secondary hover:bg-secondary/90 text-white">
+                Get a Quote
+              </Button>
+            </Link>
           </div>
         </div>
       )}
