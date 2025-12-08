@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { MapPin, Target, Lightbulb, Sprout } from "lucide-react";
-import labImage from "@assets/generated_images/close_up_of_tissue_culture_plants_in_a_lab_for_the_about_us_page..png";
+import labImage from "@assets/generated_images/tissue_culture_plants_in_a_nursery_hardening_shed..png";
 
 export default function About() {
   return (
