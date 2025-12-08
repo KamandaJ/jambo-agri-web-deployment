@@ -5,6 +5,7 @@ import FeatureCard from "@/components/ui/FeatureCard";
 import { CheckCircle2, Sprout, Layers, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 // Images
 import bananaImg from "@assets/generated_images/healthy_banana_plant_close_up..png";
@@ -124,10 +125,10 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-primary text-white relative overflow-hidden">
+        <section className="py-24 bg-primary text-white relative overflow-hidden isolate">
           {/* Decorative circles */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-secondary/20 blur-3xl" />
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/10 blur-3xl -z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl -z-10 pointer-events-none" />
           
           <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
@@ -137,9 +138,11 @@ export default function Home() {
               Get in touch with our team to find the perfect planting materials for your farm.
               Success starts with the right seed.
             </p>
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-10 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-              Get a Free Consultation
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-10 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+                Get a Free Consultation
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

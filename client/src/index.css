@@ -63,17 +63,17 @@
 }
 
 :root {
-  /* Natural, earthy palette */
-  /* Deep Jungle Green for Primary */
-  --primary: hsl(145 63% 25%); 
+  /* Natural, earthy palette - Refreshed */
+  /* Deep Jungle Green for Primary - Slightly more vibrant */
+  --primary: hsl(145 75% 28%); 
   --primary-foreground: hsl(0 0% 100%);
 
-  /* Warm Earth Gold/Brown for Secondary */
-  --secondary: hsl(35 70% 50%);
+  /* Warm Earth Gold/Brown for Secondary - Brighter, less burnt */
+  --secondary: hsl(42 90% 55%);
   --secondary-foreground: hsl(0 0% 100%);
 
   /* Soft Organic White for Background */
-  --background: hsl(40 20% 98%);
+  --background: hsl(45 25% 98%);
   --foreground: hsl(145 30% 15%); /* Dark green-grey for text */
 
   /* Clean White for Cards */
@@ -83,18 +83,18 @@
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(145 30% 15%);
 
-  --muted: hsl(145 10% 90%);
-  --muted-foreground: hsl(145 10% 40%);
+  --muted: hsl(145 15% 94%);
+  --muted-foreground: hsl(145 10% 45%);
 
-  --accent: hsl(100 50% 90%); /* Light fresh green */
-  --accent-foreground: hsl(145 63% 25%);
+  --accent: hsl(100 60% 92%); /* Light fresh green */
+  --accent-foreground: hsl(145 75% 28%);
 
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);
 
-  --border: hsl(145 20% 85%);
-  --input: hsl(145 20% 85%);
-  --ring: hsl(145 63% 25%);
+  --border: hsl(145 20% 88%);
+  --input: hsl(145 20% 88%);
+  --ring: hsl(145 75% 28%);
 
   --radius: 0.5rem;
   
