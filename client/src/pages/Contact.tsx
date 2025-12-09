@@ -40,10 +40,14 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const subject = `New Inquiry from ${values.name}`;
+    const body = `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nLocation: ${values.location}\n\nMessage:\n${values.message}`;
+    
+    window.location.href = `mailto:info@jamboagri.co.ke?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Opening Email Client",
+      description: "We've prepared an email with your message details.",
     });
     form.reset();
   }
