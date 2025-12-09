@@ -9,6 +9,8 @@ import { Link } from "wouter";
 import bananaImg from "@assets/generated_images/healthy_banana_plant_close_up..png";
 import potatoImg from "@assets/generated_images/healthy_potato_plant_close_up..png";
 import pineappleImg from "@assets/generated_images/healthy_pineapple_plant_close_up..png";
+import cassavaImg from "@assets/generated_images/healthy_cassava_plant_close_up..png";
+import pyrethrumImg from "@assets/generated_images/healthy_pyrethrum_flowers_close_up..png";
 
 export default function Crops() {
   const crops = [
@@ -49,6 +51,32 @@ export default function Crops() {
         "Sweet fruit with good shelf life",
         "Vigorous root system",
         "Reduced crop cycle time"
+      ]
+    },
+    {
+      id: "cassava",
+      name: "Improved Cassava",
+      image: cassavaImg,
+      description: "Drought-tolerant and high-yielding cassava varieties, perfect for food security and industrial use.",
+      varieties: ["Tajirika", "Kibandameno"],
+      benefits: [
+        "High resistance to Cassava Mosaic Disease",
+        "Early maturity (8-10 months)",
+        "High starch content",
+        "Excellent cooking quality"
+      ]
+    },
+    {
+      id: "pyrethrum",
+      name: "Pyrethrum Seedlings",
+      image: pyrethrumImg,
+      description: "High-pyrethrin content clones for the revival of the pyrethrum industry.",
+      varieties: ["P4", "Ks/75/12"],
+      benefits: [
+        "High flower yield per acre",
+        "High pyrethrin content (>1.6%)",
+        "Rapid establishment in the field",
+        "Continuous flowering"
       ]
     }
   ];

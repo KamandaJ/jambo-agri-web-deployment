@@ -11,6 +11,8 @@ import { Link } from "wouter";
 import bananaImg from "@assets/generated_images/healthy_banana_plant_close_up..png";
 import potatoImg from "@assets/generated_images/healthy_potato_plant_close_up..png";
 import pineappleImg from "@assets/generated_images/healthy_pineapple_plant_close_up..png";
+import cassavaImg from "@assets/generated_images/healthy_cassava_plant_close_up..png";
+import pyrethrumImg from "@assets/generated_images/healthy_pyrethrum_flowers_close_up..png";
 
 export default function Home() {
   const features = [
@@ -40,6 +42,8 @@ export default function Home() {
     { name: "Tissue Culture Bananas", image: bananaImg },
     { name: "Certified Potatoes", image: potatoImg },
     { name: "Elite Pineapples", image: pineappleImg },
+    { name: "Improved Cassava", image: cassavaImg },
+    { name: "Pyrethrum", image: pyrethrumImg },
   ];
 
   return (
