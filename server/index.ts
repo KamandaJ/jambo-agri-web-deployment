@@ -85,14 +85,25 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
+
+  httpServer.on("error", (err: any) => {
+    if (err.code === "ENOTSUP") {
+      log("IPv6 not supported, retrying with IPv4...");
+      httpServer.listen(port, "127.0.0.1", () => {
+        log(`serving on http://127.0.0.1:${port}`);
+      });
+    } else {
+      throw err;
+    }
+  });
+
   httpServer.listen(
     {
       port,
-      host: "0.0.0.0",
-      reusePort: true,
+      host: "127.0.0.1",
     },
     () => {
-      log(`serving on port ${port}`);
+      log(`serving on http://127.0.0.1:${port}`);
     },
   );
 })();

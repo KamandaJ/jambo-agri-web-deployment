@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "client/dist",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://new-domain.com/:path*",
+      "permanent": true
+    }
+  ]
+}

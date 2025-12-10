@@ -41,11 +41,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Phone className="h-5 w-5 shrink-0" />
-                <span>+254 700 000 000</span>
+                <span>
+                  <p>+254 722 779 075</p>
+                  <p>+254 725 104 838</p>
+                  </span>
               </div>
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Mail className="h-5 w-5 shrink-0" />
-                <span>info@jamboagri.co.ke</span>
+                <span>jamboagrilimited@gmail.com</span>
               </div>
             </div>
           </div>

@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
 import {
   Form,
   FormControl,
@@ -28,6 +30,9 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,30 +44,95 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const subject = `New Inquiry from ${values.name}`;
-    const body = `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nLocation: ${values.location}\n\nMessage:\n${values.message}`;
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     
-    window.location.href = `mailto:info@jamboagri.co.ke?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (!publicKey) {
+      console.error("EmailJS public key not found in environment variables");
+      toast({
+        title: "Configuration Error",
+        description: "Email service is not properly configured. Please contact support.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    toast({
-      title: "Opening Email Client",
-      description: "We've prepared an email with your message details.",
-    });
-    form.reset();
+    try {
+      emailjs.init(publicKey);
+      setIsInitialized(true);
+    } catch (error) {
+      console.error("Failed to initialize EmailJS:", error);
+      toast({
+        title: "Service Error",
+        description: "Failed to initialize email service.",
+        variant: "destructive",
+      });
+    }
+  }, [toast]);
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Validate configuration
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const recipientEmail = import.meta.env.VITE_RECIPIENT_EMAIL || "holdingsjambo@gmail.com";
+
+    if (!serviceId || !templateId) {
+      toast({
+        title: "Configuration Error",
+        description: "Email service is not properly configured.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      phone: values.phone,
+      location: values.location,
+      message: values.message,
+      to_email: recipientEmail,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams)
+      .then(() => {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We have received your inquiry and will contact you soon.",
+          variant: "default",
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Email sending failed:", error);
+        toast({
+          title: "Failed to send message",
+          description: "Please try again later or contact us directly via phone.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   }
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <Navbar />
-      
+
       <main className="flex-grow">
         {/* Header */}
         <div className="bg-primary py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+              Contact Us
+            </h1>
             <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-              Have questions about our tissue culture plants? Ready to place an order? 
+              Have questions about our tissue culture plants? Ready to place an order?
               We're here to help you grow.
             </p>
           </div>
@@ -70,13 +140,15 @@ export default function Contact() {
 
         <div className="container mx-auto px-4 md:px-6 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-primary mb-6">Get in Touch</h2>
+                <h2 className="font-serif text-3xl font-bold text-primary mb-6">
+                  Get in Touch
+                </h2>
                 <p className="text-muted-foreground text-lg mb-8">
-                  Visit our lab in Mwea or reach out to us directly. Our agronomists are ready to assist you.
+                  Visit our lab in Mwea or reach out to us directly. Our agronomists are
+                  ready to assist you.
                 </p>
               </div>
 
@@ -89,7 +161,8 @@ export default function Contact() {
                     <div>
                       <h3 className="font-bold text-foreground text-lg mb-1">Visit Us</h3>
                       <p className="text-muted-foreground">
-                        Mwea, Kirinyaga County<br />
+                        Mwea, Kirinyaga County
+                        <br />
                         Kenya
                       </p>
                     </div>
@@ -104,7 +177,9 @@ export default function Contact() {
                     <div>
                       <h3 className="font-bold text-foreground text-lg mb-1">Call Us</h3>
                       <p className="text-muted-foreground">
-                        +254 700 000 000<br />
+                        +254 722 779 075</p>
+                      <p className="text-muted-foreground">
+                        +254 725 104 838<br />
                         <span className="text-sm">Mon-Fri, 8am - 5pm</span>
                       </p>
                     </div>
@@ -118,9 +193,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground text-lg mb-1">Email Us</h3>
-                      <p className="text-muted-foreground">
-                        info@jamboagri.co.ke
-                      </p>
+                      <p className="text-muted-foreground">jamboagrilimited@gmail.com</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -129,7 +202,9 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-border">
-              <h2 className="font-serif text-2xl font-bold text-primary mb-6">Send us a Message</h2>
+              <h2 className="font-serif text-2xl font-bold text-primary mb-6">
+                Send us a Message
+              </h2>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -197,10 +272,10 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>How can we help?</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="I am interested in ordering tissue culture bananas..." 
+                          <Textarea
+                            placeholder="I am interested in ordering tissue culture bananas..."
                             className="min-h-[120px]"
-                            {...field} 
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -208,13 +283,16 @@ export default function Contact() {
                     )}
                   />
 
-                  <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold h-12">
-                    Send Message
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting || !isInitialized}
+                    className="w-full bg-secondary hover:bg-secondary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold h-12"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>
             </div>
-
           </div>
         </div>
       </main>

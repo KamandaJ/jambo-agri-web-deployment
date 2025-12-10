@@ -6,11 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
 // Reuse images
-import bananaImg from "@assets/generated_images/healthy_banana_plant_close_up..png";
+import bananaImg from "@assets/generated_images/fresh_banana_tree.png";
 import potatoImg from "@assets/generated_images/healthy_potato_plant_close_up..png";
 import pineappleImg from "@assets/generated_images/healthy_pineapple_plant_close_up..png";
-import cassavaImg from "@assets/generated_images/healthy_cassava_plant_close_up..png";
+import cassavaImg from "@assets/generated_images/cassava_plant.png";
 import pyrethrumImg from "@assets/generated_images/healthy_pyrethrum_flowers_close_up..png";
+import coffeeImg from "@assets/generated_images/fresh_coffee_plant.png";
+import roseflowerImg from "@assets/generated_images/rose_flower.png";
+import sweetpotatoImg from "@assets/generated_images/sweet_potato_vines.png";
 
 export default function Crops() {
   const crops = [
@@ -28,6 +31,19 @@ export default function Crops() {
       ]
     },
     {
+      id: "coffee",
+      name: "Tissue Culture Coffee",
+      image: coffeeImg,
+      description: "High-yielding and disease-resistant coffee plantlets ideal for both smallholder and commercial farmers.",
+      varieties: ["SL28", "SL34", "Batian"],
+      benefits: [
+        "Enhanced resistance to Coffee Leaf Rust",
+        "Uniform plant size and growth",
+        "Higher yield potential",
+        "Improved cup quality"
+      ]
+    },
+    {
       id: "potatoes",
       name: "Certified Seed Potatoes",
       image: potatoImg,
@@ -39,6 +55,19 @@ export default function Crops() {
         "Excellent tuber formation",
         "Adaptable to various soil types"
       ]
+    },
+    {
+      id: "sweetpotatoes",
+      name: "Sweet Potato Vines",
+      image: sweetpotatoImg,
+      description: "Disease-free sweet potato vines that ensure healthy growth and high yields for food security and commercial purposes.",
+      varieties: ["SPK 004", "Kemb 10"],
+      benefits: [
+        "Free from Sweet Potato Virus Disease (SPVD)",
+        "High yield potential",
+        "Good storage roots quality",
+        "Resistant to common pests"
+      ] 
     },
     {
       id: "pineapples",
@@ -77,6 +106,19 @@ export default function Crops() {
         "High pyrethrin content (>1.6%)",
         "Rapid establishment in the field",
         "Continuous flowering"
+      ]
+    },
+    {
+      id: "roseflowers",
+      name: "Tissue Culture Rose Flowers",
+      image: roseflowerImg,
+      description: "Vibrant and healthy rose plants ideal for floriculture businesses and ornamental gardening.",
+      varieties: ["Red Naomi", "Vendela", "Akito"],
+      benefits: [
+        "Uniform flower size and color",
+        "Long vase life",
+        "Disease-free planting material",
+        "Fast growth and blooming"
       ]
     }
   ];
