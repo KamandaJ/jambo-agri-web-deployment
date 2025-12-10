@@ -4,11 +4,15 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "redirects": [
+  "functions": {
+    "dist/index.cjs": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
     {
-      "source": "/:path*",
-      "destination": "https://new-domain.com/:path*",
-      "permanent": true
+      "src": "/(.*)",
+      "dest": "dist/index.cjs"
     }
   ]
 }
