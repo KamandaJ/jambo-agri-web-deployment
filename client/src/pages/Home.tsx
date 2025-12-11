@@ -55,11 +55,11 @@ export default function Home() {
             <div className="max-w-3xl mx-auto text-center space-y-6">
               <span className="text-secondary font-bold tracking-wider uppercase text-sm">Welcome to Jambo Agri Ltd.</span>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">
-                Revolutionizing Farming in Kirinyaga
+                Revolutionizing Farming in Kenya
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Established in the heart of Kirinyaga's agricultural hub in May 2025, 
-                we are dedicated to empowering local farmers. We specialize in producing 
+                Established in May 2025, in the heart of Mwea, Kenya is an agricultural hub where 
+                we are dedicated to empowering farmers. We specialize in producing 
                 superior, disease-free planting materials using state-of-the-art tissue culture technology.
                 Based in Mwea, we are your neighbors, and we are committed to your growth.
               </p>

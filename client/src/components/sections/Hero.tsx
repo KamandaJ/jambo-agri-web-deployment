@@ -38,7 +38,7 @@ export default function Hero() {
           
           <p className="text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed">
             High-quality tissue culture plants for small, medium and large scale farmers.
-            Our focus is on empowering local farmers with the tools for success 
+            Our focus is on empowering farmers with the tools for success.
             Higher yields, resilient crops, and greater profits.
             Based in Mwea, we are your neighbors, and we are committed to your growth.
           </p>
