@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-primary-foreground/80 max-w-xs leading-relaxed">
-              Empowering small-scale farmers in Kirinyaga and beyond with superior tissue culture planting materials.
+              Empowering small, medium and large scale farmers in Kenya and beyond with superior tissue culture planting materials.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-start space-x-3 text-primary-foreground/80">
                 <MapPin className="h-5 w-5 mt-0.5 shrink-0" />
-                <span>Mwea, Kirinyaga County,<br />Kenya</span>
+                <span>Mwea, Kenya</span>
               </div>
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Phone className="h-5 w-5 shrink-0" />
@@ -48,7 +48,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Mail className="h-5 w-5 shrink-0" />
-                <span>jamboagrilimited@gmail.com</span>
+                <span>info@jamboagri.com</span>
               </div>
             </div>
           </div>

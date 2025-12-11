@@ -28,7 +28,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
             <span className="flex h-2 w-2 rounded-full bg-secondary mr-2"></span>
-            Established in Kirinyaga, growing for Kenya
+            Established in Mwea, growing for Kenya
           </div>
           
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
@@ -37,8 +37,10 @@ export default function Hero() {
           </h1>
           
           <p className="text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed">
-            High-quality tissue culture plants for small-scale farmers. 
-            Higher yields, resilient crops, and greater profits starting from your soil.
+            High-quality tissue culture plants for small, medium and large scale farmers.
+            Our focus is on empowering local farmers with the tools for success 
+            Higher yields, resilient crops, and greater profits.
+            Based in Mwea, we are your neighbors, and we are committed to your growth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">

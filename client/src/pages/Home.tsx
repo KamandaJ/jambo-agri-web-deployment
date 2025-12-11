@@ -17,22 +17,22 @@ export default function Home() {
     {
       icon: CheckCircle2,
       title: "Premium Quality",
-      description: "Disease-free, high-yielding tissue culture plants rigorously tested for genetic purity."
+      description: "Disease-free, high-yielding tissue culture plant seedlings from our biological laboratories."
     },
     {
       icon: Users,
       title: "Farmer-Centric",
-      description: "Tailored solutions and hands-on support specifically designed for small-scale farmers."
+      description: "Tailored solutions and hands-on support specifically designed for small, medium and large-scale farmers."
     },
     {
       icon: Layers,
       title: "Wide Variety",
-      description: "Specializing in Bananas, Potatoes, Pineapples, and other high-value crops."
+      description: "Specializing in Bananas, Potatoes, Pineapples, Cassavas, Pyrethrum, and more."
     },
     {
       icon: Sprout,
       title: "Expert Support",
-      description: "From our lab to your field, we provide agronomic guidance every step of the way."
+      description: "From our laboratories to your field, we're with you every step of the way."
     }
   ];
 
@@ -94,9 +94,11 @@ export default function Home() {
                   Scientifically developed for maximum resistance and productivity.
                 </p>
               </div>
-              <Button variant="ghost" className="text-primary hover:text-primary/80 group">
+              <Link href="/crops">
+                <Button variant="ghost" className="text-primary hover:text-primary/80 group">
                 View All Products <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+                </Button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

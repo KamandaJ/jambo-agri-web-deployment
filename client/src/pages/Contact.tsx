@@ -144,11 +144,11 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h2 className="font-serif text-3xl font-bold text-primary mb-6">
-                  Get in Touch
+                  Ready to transform your harvest?
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8">
-                  Visit our lab in Mwea or reach out to us directly. Our agronomists are
-                  ready to assist you.
+                  Get in touch with our team to find out the perfect methods and materials 
+                  for best farming practices, and marketing of their products accordingly.
                 </p>
               </div>
 
@@ -161,7 +161,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-bold text-foreground text-lg mb-1">Visit Us</h3>
                       <p className="text-muted-foreground">
-                        Mwea, Kirinyaga County
+                        Mwea
                         <br />
                         Kenya
                       </p>
@@ -193,7 +193,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground text-lg mb-1">Email Us</h3>
-                      <p className="text-muted-foreground">jamboagrilimited@gmail.com</p>
+                      <p className="text-muted-foreground">info@jamboagri.com</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -257,7 +257,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Location/County</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g. Kirinyaga" {...field} />
+                            <Input placeholder="e.g. Nairobi" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

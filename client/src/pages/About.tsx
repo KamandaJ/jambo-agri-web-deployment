@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Target, Lightbulb, Sprout } from "lucide-react";
+import { MapPin, Target, Lightbulb, Sprout, Globe } from "lucide-react";
 import labImage from "@assets/generated_images/tissue_culture_plants_in_a_nursery_hardening_shed..png";
 
 export default function About() {
@@ -39,8 +39,9 @@ export default function About() {
                 </div>
                 <h2 className="font-serif text-3xl font-bold text-primary">Our Mission</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  To empower small-scale farmers in Kirinyaga County and beyond by providing access to affordable, 
-                  high-quality tissue culture plants, driving agricultural productivity and sustainable livelihoods.
+                  To empower small, medium and large-scale farmers in Kirinyaga County and beyond by
+                  providing access to affordable, high-quality tissue culture plant seedlings,
+                  driving agricultural productivity and sustainable livelihoods.
                 </p>
               </div>
 
@@ -73,7 +74,7 @@ export default function About() {
                 <h2 className="font-serif text-4xl font-bold text-foreground">Our Journey</h2>
                 <div className="w-20 h-1 bg-secondary rounded-full" />
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Jambo Agri Ltd. was established in May 2025 with a clear goal: to address the challenges faced by local farmers. 
+                  Jambo Agri Ltd. was established in May 2025 to address the challenges faced by farmers within Kenya and Africa.
                   We saw the struggle with low-yielding, disease-prone planting materials and knew there was a better way.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -100,18 +101,23 @@ export default function About() {
                 {
                   icon: MapPin,
                   title: "Local Presence",
-                  text: "We are based in Mwea, Kirinyaga County. We understand your soil, your climate, and your challenges."
+                  text: "We are based in Mwea, Kirinyaga County where there is conducive climatic conditions which favor the development of most crop varieties. "
                 },
                 {
                   icon: Sprout,
                   title: "Uncompromising Quality",
-                  text: "Our tissue culture process ensures every plant is genetically uniform, free from pests and diseases, and has a vigorous growth potential."
+                  text: "Our laboratory tissue culture process ensures every plant is genetically uniform, free from pests and diseases, and has a vigorous adaptive growth potential anywhere within Kenya and Africa."
                 },
                 {
                   icon: Lightbulb,
                   title: "Farmer Education",
-                  text: "We believe in knowledge transfer. We offer guidance on best agronomic practices to ensure you get the most from our plants."
-                }
+                  text: "We believe in knowledge transfer. We offer guidance on best agronomic practices for our plant seedlings."
+                },
+                {
+                  icon: Globe,
+                  title: "Environmental Stewardship",
+                  text: "We specialize mostly in banana seedlings which are favorable in all climatic changes and contribute to carbon crediting."
+                },
               ].map((item, i) => (
                 <div key={i} className="bg-white p-8 rounded-2xl border border-border hover:border-primary/50 transition-colors shadow-sm hover:shadow-md">
                   <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
