@@ -61,7 +61,7 @@ export default function Home() {
                 Established in May 2025, in the heart of Mwea, Kenya is an agricultural hub where 
                 we are dedicated to empowering farmers. We specialize in producing 
                 superior, disease-free planting materials using state-of-the-art tissue culture technology.
-                Based in Mwea, we are your neighbors, and we are committed to your growth.
+                Based in Mwea, Kenya, we are committed to your growth.
               </p>
             </div>
           </div>
