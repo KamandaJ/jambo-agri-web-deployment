@@ -6,7 +6,7 @@ import heroImage from "@assets/generated_images/hero_image_of_a_lush_banana_plan
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] min-h-[600px] w-full overflow-hidden">
+    <div className="relative h-[90vh] min-h-[600px] w-full overflow-hidden pt-16 md:pt-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
