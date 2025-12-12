@@ -7,6 +7,7 @@ import { Link } from "wouter";
 
 // Reuse images
 import bananaImg from "@assets/generated_images/fresh_banana_tree.png";
+import bananaImg2 from "@assets/generated_images/banana_seedling.png";
 import potatoImg from "@assets/generated_images/healthy_potato_plant_close_up..png";
 import pineappleImg from "@assets/generated_images/healthy_pineapple_plant_close_up..png";
 import cassavaImg from "@assets/generated_images/cassava_plant.png";
@@ -18,7 +19,7 @@ import sweetpotatoImg from "@assets/generated_images/sweet_potato_vines.png";
 export default function Crops() {
   const crops = [
     {
-      id: "bananas",
+      id: "bananas-1",
       name: "Tissue Culture Bananas",
       image: bananaImg,
       description: "Our tissue culture bananas are our flagship product, known for their rapid growth and disease resistance.",
@@ -28,7 +29,23 @@ export default function Crops() {
         "Uniform growth and maturity",
         "Higher yield per acre",
         "Early maturity compared to suckers"
-      ]
+      ],
+      isDoubleBanana: true
+    },
+    {
+      id: "bananas-2",
+      name: "Tissue Culture Bananas",
+      image: bananaImg2,
+      description: "Our tissue culture bananas are our flagship product, known for their rapid growth and disease resistance.",
+      varieties: ["Grand Nain", "William", "FIA 17", "FHIA 18"],
+      benefits: [
+        "Free from pests and diseases",
+        "Uniform growth and maturity",
+        "Higher yield per acre",
+        "Early maturity compared to suckers"
+      ],
+      isDoubleBanana: true,
+      isSecondBanana: true
     },
     {
       id: "coffee",
@@ -139,7 +156,11 @@ export default function Crops() {
         </div>
 
         <div className="container mx-auto px-4 md:px-6 py-16 space-y-24">
-          {crops.map((crop, index) => (
+          {crops.map((crop, index) => {
+            // Skip the second banana if we're grouping them side by side
+            if (crop.isSecondBanana) return null;
+
+            return (
             <motion.div 
               key={crop.id}
               initial={{ opacity: 0, y: 40 }}
@@ -149,15 +170,38 @@ export default function Crops() {
               className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-center`}
             >
               {/* Image */}
-              <div className="w-full md:w-1/2">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-                  <img 
-                    src={crop.image} 
-                    alt={crop.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className={crop.isDoubleBanana ? "w-full md:w-1/2" : "w-full md:w-1/2"}>
+                {crop.isDoubleBanana ? (
+                  // Double banana layout (side by side)
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square group">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                      <img 
+                        src={bananaImg2} 
+                        alt={crop.name} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square group">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                      <img 
+                        src={crop.image} 
+                        alt={crop.name} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  // Single crop layout
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/3 group">
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                    <img 
+                      src={crop.image} 
+                      alt={crop.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -172,7 +216,7 @@ export default function Crops() {
                     <h3 className="font-bold text-foreground mb-2">Available Varieties:</h3>
                     <div className="flex flex-wrap gap-2">
                       {crop.varieties.map(variety => (
-                        <span key={variety} className="px-3 py-1 bg-secondary/10 text-secondary-foreground text-sm font-medium rounded-full border border-secondary/20">
+                        <span key={variety} className="px-3 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full border border-primary/30">
                           {variety}
                         </span>
                       ))}
@@ -201,9 +245,9 @@ export default function Crops() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
-
         {/* Catalog CTA */}
         <div className="bg-muted/30 py-20 mt-12">
           <div className="container mx-auto px-4 text-center max-w-2xl">

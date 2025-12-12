@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, PhoneCall } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Form,
   FormControl,
@@ -70,6 +70,49 @@ export default function Contact() {
       });
     }
   }, [toast]);
+
+  // Prefill and scroll to form when contact link includes query params or hash
+  const formRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const phone = params.get("phone");
+      const email = params.get("email");
+      const message = params.get("message");
+
+      if (phone) {
+        form.setValue("phone", phone);
+      }
+      if (email) {
+        form.setValue("email", email);
+      }
+      if (message) {
+        form.setValue("message", message);
+      }
+
+      // If anchor present or params exist, scroll to form
+      if (window.location.hash === "#contact-form" || phone || email || message) {
+        setTimeout(() => {
+          if (formRef.current) {
+            formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+            // If message provided, focus the textarea, otherwise focus first input
+            const focusEl = message
+              ? (formRef.current.querySelector("textarea") as HTMLElement | null)
+              : (formRef.current.querySelector("input, textarea") as HTMLElement | null);
+            if (focusEl) focusEl.focus();
+          }
+        }, 150);
+
+        // Remove query params from URL to avoid repeated actions
+        const url = new URL(window.location.href);
+        url.search = "";
+        window.history.replaceState({}, "", url.toString());
+      }
+    } catch (err) {
+      // ignore
+    }
+  }, [form]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Validate configuration
@@ -154,7 +197,7 @@ export default function Contact() {
 
               <div className="grid gap-6">
                 <Card className="border-none shadow-md">
-                  <CardContent className="p-6 flex items-start space-x-4">
+                  <CardContent className="p-6 flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-3 sm:space-y-0">
                     <div className="bg-secondary/10 p-3 rounded-full text-secondary">
                       <MapPin className="h-6 w-6" />
                     </div>
@@ -170,24 +213,33 @@ export default function Contact() {
                 </Card>
 
                 <Card className="border-none shadow-md">
-                  <CardContent className="p-6 flex items-start space-x-4">
+                  <CardContent className="p-6 flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-3 sm:space-y-0">
                     <div className="bg-secondary/10 p-3 rounded-full text-secondary">
                       <Phone className="h-6 w-6" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-foreground text-lg mb-1">Call Us</h3>
-                      <p className="text-muted-foreground">
-                        +254 722 779 075</p>
-                      <p className="text-muted-foreground">
-                        +254 725 104 838<br />
-                        <span className="text-sm">Mon-Fri, 8am - 5pm</span>
-                      </p>
+                    <div className="w-full">
+                      <h3 className="font-bold text-foreground text-lg mb-2">Call Us</h3>
+                      <a 
+                        href="tel:+254722779075"
+                        className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors mb-2"
+                      >
+                        <span>+254 722 779 075</span>
+                        <PhoneCall className="h-4 w-4" />
+                      </a>
+                      <a 
+                        href="tel:+254725104838"
+                        className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <span>+254 725 104 838</span>
+                        <PhoneCall className="h-4 w-4" />
+                      </a>
+                      <p className="text-sm text-muted-foreground mt-2">Mon-Fri, 8am - 5pm</p>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card className="border-none shadow-md">
-                  <CardContent className="p-6 flex items-start space-x-4">
+                  <CardContent className="p-6 flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-3 sm:space-y-0">
                     <div className="bg-secondary/10 p-3 rounded-full text-secondary">
                       <Mail className="h-6 w-6" />
                     </div>
@@ -201,7 +253,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-border">
+            <div ref={formRef} id="contact-form" className="bg-white p-8 rounded-2xl shadow-lg border border-border">
               <h2 className="font-serif text-2xl font-bold text-primary mb-6">
                 Send us a Message
               </h2>

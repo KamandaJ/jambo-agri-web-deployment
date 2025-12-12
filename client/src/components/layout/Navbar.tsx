@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-border/40">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 md:h-20 items-center justify-between">
           <Link href="/">
             <a className="flex items-center space-x-2">
               <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
@@ -36,7 +36,7 @@ export default function Navbar() {
               <Link key={link.name} href={link.href}>
                 <a
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
+                    "text-sm font-medium transition-colors hover:text-primary block",
                     location === link.href
                       ? "text-primary font-bold"
                       : "text-muted-foreground"

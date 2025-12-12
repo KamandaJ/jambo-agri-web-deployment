@@ -160,3 +160,31 @@
     @apply font-serif text-primary;
   }
 }
+
+/* Mobile / responsive fixes to avoid overlapping borders and misalignment */
+@layer utilities {
+  /* Ensure images never overflow their containers */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Make card content stack vertically on small screens (fallback) */
+  .card-stack-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Ensure cards don't produce double borders when adjacent */
+  .card-no-overlap {
+    border-collapse: separate;
+    overflow: hidden;
+  }
+
+  /* Make buttons full width on small screens where appropriate */
+  .btn-mobile-full {
+    width: 100%;
+  }
+}
