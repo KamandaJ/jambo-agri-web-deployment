@@ -6,7 +6,7 @@ import heroImage from "@assets/generated_images/hero_image_of_a_lush_banana_plan
 
 export default function Hero() {
   return (
-    <div className="relative h-[75vh] md:h-[90vh] min-h-[480px] md:min-h-[600px] w-full overflow-hidden pt-12 md:pt-0">
+    <div className="relative h-[75vh] md:h-[90vh] min-h-[400px] md:min-h-[600px] w-full overflow-hidden pt-12 md:pt-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -43,7 +43,7 @@ export default function Hero() {
             Based in Mwea, we are your neighbors, and we are committed to your growth.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col gap-3 pt-2 w-full sm:w-auto sm:flex-row sm:gap-4">
             <Link href="/crops">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg h-14 px-8 rounded-full border border-white/10">
                 View Our Crops
