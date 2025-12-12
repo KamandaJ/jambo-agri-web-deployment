@@ -50,7 +50,7 @@ export default function Home() {
         <Hero />
 
         {/* Intro Section */}
-        <section className="pt-12 md:pt-20 pb-20 md:pb-32 bg-white">
+        <section className="pt-8 md:pt-20 pb-20 md:pb-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-6">
               <span className="text-secondary font-bold tracking-wider uppercase text-sm">Welcome to Jambo Agri Ltd.</span>
@@ -127,16 +127,16 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-primary text-white relative overflow-hidden isolate">
+        <section className="py-12 md:py-24 bg-primary text-white relative overflow-hidden isolate">
           {/* Decorative circles */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/10 blur-3xl -z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl -z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-white/5 blur-3xl -z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-72 h-72 rounded-full bg-secondary/10 blur-3xl -z-10 pointer-events-none" />
           
           <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
               Ready to transform your harvest?
             </h2>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-base md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed">
               Get in touch with our team to find the perfect planting materials for your farm.
               Success starts with the right seed.
             </p>
