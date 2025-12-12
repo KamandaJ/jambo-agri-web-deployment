@@ -50,7 +50,7 @@ export default function Home() {
         <Hero />
 
         {/* Intro Section */}
-        <section className="pt-8 md:pt-20 pb-20 md:pb-32 bg-white">
+        <section className="pt-6 md:pt-20 pb-20 md:pb-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-6">
               <span className="text-secondary font-bold tracking-wider uppercase text-sm">Welcome to Jambo Agri Ltd.</span>
