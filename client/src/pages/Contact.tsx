@@ -243,10 +243,10 @@ export default function Contact() {
                     <div className="bg-secondary/10 p-3 rounded-full text-secondary">
                       <Mail className="h-6 w-6" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-foreground text-lg mb-1">Email Us</h3>
-                      <p className="text-muted-foreground">info@jamboagri.com</p>
-                    </div>
+                        <div>
+                          <h3 className="font-bold text-foreground text-lg mb-1">Email Us</h3>
+                          <a href="#contact-form" className="text-muted-foreground hover:text-primary">info@jamboagri.com</a>
+                        </div>
                   </CardContent>
                 </Card>
               </div>

@@ -87,7 +87,7 @@ export default function Home() {
         {/* Crop Showcase */}
         <section className="py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-4">
               <div className="max-w-2xl">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Our High-Yielding Crops</h2>
                 <p className="text-muted-foreground text-lg">
@@ -95,7 +95,7 @@ export default function Home() {
                 </p>
               </div>
               <Link href="/crops">
-                <Button variant="ghost" className="text-primary hover:text-primary/80 group">
+                <Button variant="ghost" className="text-primary hover:text-primary/80 group mt-4 md:mt-0">
                 View All Products <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>

@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
           {/* Brand */}
-            <div className="space-y-4">
+          <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white">
                 <Leaf className="h-5 w-5" />
@@ -40,19 +40,21 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 mt-0.5 shrink-0" />
                 <span>Mwea, Kenya</span>
               </div>
+
               <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 text-primary-foreground/80">
-                    <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 shrink-0" />
-                  <div className="flex flex-col">
-                    <Link href="/contact?phone=%2B254722779075&message=I%27m%20interested%20in%20your%20products#contact-form" className="hover:text-white">+254 722 779 075</Link>
-                    <Link href="/contact?phone=%2B254725104838&message=I%27m%20interested%20in%20your%20products#contact-form" className="hover:text-white">+254 725 104 838</Link>
-                  </div>
+                    <div className="flex flex-col">
+                      <a href="tel:+254722779075" className="hover:text-white">+254 722 779 075</a>
+                      <a href="tel:+254725104838" className="hover:text-white">+254 725 104 838</a>
+                    </div>
                 </div>
               </div>
+
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Mail className="h-5 w-5 shrink-0" />
-                  <div>
-                  <Link href="/contact?email=info%40jamboagri.com&message=I%27d%20like%20to%20inquire%20about%20your%20products#contact-form" className="hover:text-white">info@jamboagri.com</Link>
+                <div>
+                  <Link href="/contact#contact-form" className="hover:text-white">info@jamboagri.com</Link>
                 </div>
               </div>
             </div>
