@@ -6,7 +6,7 @@ import heroImage from "@assets/generated_images/hero_image_of_a_lush_banana_plan
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] min-h-[600px] w-full overflow-hidden">
+    <div className="relative h-screen md:h-[90vh] min-h-[500px] md:min-h-[600px] w-full overflow-hidden pt-16 md:pt-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 md:px-6 h-full flex flex-col justify-center">
+      <div className="container relative z-10 mx-auto px-4 md:px-6 h-full flex flex-col justify-center py-8 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
