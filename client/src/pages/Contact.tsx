@@ -118,7 +118,7 @@ export default function Contact() {
     // Validate configuration
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const recipientEmail = import.meta.env.VITE_RECIPIENT_EMAIL || "holdingsjambo@gmail.com";
+    const recipientEmail = import.meta.env.VITE_RECIPIENT_EMAIL || "jamboagrilimited@gmail.com";
 
     if (!serviceId || !templateId) {
       toast({
@@ -245,7 +245,7 @@ export default function Contact() {
                     </div>
                         <div>
                           <h3 className="font-bold text-foreground text-lg mb-1">Email Us</h3>
-                          <a href="#contact-form" className="text-muted-foreground hover:text-primary">info@jamboagri.com</a>
+                          <a href="#contact-form" className="text-muted-foreground hover:text-primary">jamboagrilimited@gmail.com</a>
                         </div>
                   </CardContent>
                 </Card>

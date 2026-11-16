@@ -54,7 +54,7 @@ export default function Footer() {
               <div className="flex items-center space-x-3 text-primary-foreground/80">
                 <Mail className="h-5 w-5 shrink-0" />
                 <div>
-                  <Link href="/contact#contact-form" className="hover:text-white">info@jamboagri.com</Link>
+                  <Link href="/contact#contact-form" className="hover:text-white">jamboagrilimited@gmail.com</Link>
                 </div>
               </div>
             </div>
